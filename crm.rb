@@ -1,3 +1,5 @@
+require_relative 'contact'
+
 class CRM
 	attr_reader :name
 
@@ -56,17 +58,6 @@ class CRM
 		contact = Contact.new(first_name, last_name, email, note)
 		@rolodex.add_contact(Contact.new(first_name, last_name, email, note))
 		main_menu
-	end
-end
-
-class Contact
-	attr_accessor :id, :first_name, :last_name, :email, :note
-
-	def initialize(first_name, last_name, email, note)
-		@first_name = first_name
-		@last_name = last_name
-		@email = email
-		@note = note
 	end
 end
 
