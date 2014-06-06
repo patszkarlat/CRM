@@ -3,6 +3,7 @@ class CRM
 
 	def initialize(name)
 		@name = name
+		@rolodex = Rolodex.new
 	end
 
 	def print_main_menu
@@ -53,22 +54,38 @@ class CRM
 		print "Enter a note:"
 		note = gets.chomp
 		contact = Contact.new(first_name, last_name, email, note)
+		@rolodex.add_contact(Contact.new(first_name, last_name, email, note))
 		main_menu
 	end
 end
 
 class Contact
+	attr_accessor :id, :first_name, :last_name, :email, :note
+
 	def initialize(first_name, last_name, email, note)
 		@first_name = first_name
 		@last_name = last_name
 		@email = email
 		@note = note
 	end
-	
+end
+
+class Rolodex
+	def initialize
+		@contacts_id = 1000
+		@contacts = []
+	end
+
+	def add_contact(contact)
+		@contacts << contact
+		contact.id = @contact_id
+		@contact_id += 1
+	end
+end
 
 crm = CRM.new("Bitmaker Labs CRM")
-
 crm.main_menu
+contact = Contact.new(first_name, last_name, email, note)
 
 
 
@@ -81,7 +98,7 @@ crm.main_menu
 
 
 
-end
+
 
 	# 	add_new_contact if selection == 1
 	# modify_contact if selection == 2
