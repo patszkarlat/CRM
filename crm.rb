@@ -1,6 +1,6 @@
 class CRM
 	attr_reader :name
-	
+
 	def initialize(name)
 		@name = name
 	end
@@ -16,6 +16,7 @@ class CRM
 	end
 
 	def main_menu
+	 	puts	"Welcome to #{@name}"
 		print_main_menu	
 		selection = gets.chomp.to_i
 		call_option(selection)
@@ -41,10 +42,24 @@ class CRM
 		main_menu
 		end
 	end
+	
+	def add_new_contact
+		print "Enter first name:"
+		first_name = gets.chomp
+		print "Enter last name:"
+		last_name = gets.chomp
+		print "Enter email address:"
+		email = gets.chomp
+		print "Enter a note:"
+		note = gets.chomp
+		main_menu
+	end
 end
 
+
+
 crm = CRM.new("Bitmaker Labs CRM")
-"Welcome to crm"
+
 crm.main_menu
 
 
@@ -52,18 +67,13 @@ crm.main_menu
 
 
 
-	main_menu
 
-	class Contact
-		def initialize(id, first_name, last_name, email, notes)
-		@id = id
-		@first_name = first_name
-		@last_name = last_name
-		@email = email
-		@notes = notes
-	end
+	
 
 
+
+
+end
 
 	# 	add_new_contact if selection == 1
 	# modify_contact if selection == 2
