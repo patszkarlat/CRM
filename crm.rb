@@ -52,11 +52,19 @@ class CRM
 		email = gets.chomp
 		print "Enter a note:"
 		note = gets.chomp
+		contact = Contact.new(first_name, last_name, email, note)
 		main_menu
 	end
 end
 
-
+class Contact
+	def initialize(first_name, last_name, email, note)
+		@first_name = first_name
+		@last_name = last_name
+		@email = email
+		@note = note
+	end
+	
 
 crm = CRM.new("Bitmaker Labs CRM")
 
