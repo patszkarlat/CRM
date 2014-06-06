@@ -1,7 +1,10 @@
 require_relative 'contact'
+require_relative 'rolodex'
 
 class CRM
 	attr_reader :name
+
+
 
 	def initialize(name)
 		@name = name
@@ -61,22 +64,12 @@ class CRM
 	end
 end
 
-class Rolodex
-	def initialize
-		@contacts_id = 1000
-		@contacts = []
-	end
 
-	def add_contact(contact)
-		@contacts << contact
-		contact.id = @contact_id
-		@contact_id += 1
-	end
-end
+
+crm.run("Bitmaker Labs CRM")
 
 crm = CRM.new("Bitmaker Labs CRM")
-crm.main_menu
-contact = Contact.new(first_name, last_name, email, note)
+
 
 
 
