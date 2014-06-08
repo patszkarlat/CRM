@@ -4,7 +4,10 @@ require_relative 'rolodex'
 class CRM
 	attr_reader :name
 
-
+def self.run(name)
+	crm = self.new(name)
+	crm.main_menu
+end
 
 	def initialize(name)
 		@name = name
@@ -50,13 +53,13 @@ class CRM
 	end
 	
 	def add_new_contact
-		print "Enter first name:"
+		print "Enter first name: "
 		first_name = gets.chomp
-		print "Enter last name:"
+		print "Enter last name: "
 		last_name = gets.chomp
-		print "Enter email address:"
+		print "Enter email address: "
 		email = gets.chomp
-		print "Enter a note:"
+		print "Enter a note: "
 		note = gets.chomp
 		contact = Contact.new(first_name, last_name, email, note)
 		@rolodex.add_contact(Contact.new(first_name, last_name, email, note))
@@ -66,10 +69,10 @@ end
 
 
 
-crm.run("Bitmaker Labs CRM")
+# crm.run("Bitmaker Labs CRM")
 
 crm = CRM.new("Bitmaker Labs CRM")
-
+crm.main_menu
 
 
 
