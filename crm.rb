@@ -61,10 +61,21 @@ end
 		email = gets.chomp
 		print "Enter a note: "
 		note = gets.chomp
-		contact = Contact.new(first_name, last_name, email, note)
-		@rolodex.add_contact(Contact.new(first_name, last_name, email, note))
+		contact = @rolodex.add_contact(Contact.new(first_name, last_name, email, note))
 		main_menu
 	end
+
+def delete_contact
+	print "Enter a contact id: "
+		id = gets.chomp.to_i
+		@rolodex.delete_contact(id)
+		main_menu
+	end
+
+def display_contacts
+	@rolodex.display_contacts
+end
+
 end
 
 
@@ -77,13 +88,8 @@ crm.main_menu
 
 
 
-
-
-
 	
-
-
-
+	
 
 
 

@@ -1,41 +1,54 @@
 class Rolodex
+	attr_accessor :contacts
+	
 	def initialize
 		@contacts_id = 1000
 		@contacts = Array.new
-
 	end
 
-	def contact
+	def contacts
 		@contacts
 	end
 
 	def add_contact(contact)
+		contact.id = @contacts_id
 		@contacts << contact
-		contact.id = @contact_id
 		@contacts_id += 1
-	end
-end
 
-	def delete_contact
-		print "Enter a contact id: "
-		id = gets.chomp
-		@contacts.each do |contact|
-		if contact.id == id 
-		print "Are you sure you want to delete this contact? Type y for yes, and n for no: "
-		answer = gets.chomp
-		if answer == "y" 
-		@contacts.delete(contact) #hey @contacts! delete this (contact)! IS WHAT THIS MEANS
+		return contact.id
+	end
+
+# calling find_contact on user inputted id; searching through array called @contacts; piping each contact through .id method and see if there's a
+# match to id
+	def find_contact(id)
+		@contacts.find { |contact| contact.id == id }
+	end
+
+
+	def delete_contact(id)
+		# find_contact(id)
+		# if !find_contact(id)
+		# 		puts "Sorry, I can't find what you're looking for!"
+		# 	else
+		# 		@contacts[contact_index].delete
+		# end
+
+		if contact = find_contact(id)
+			@contacts.delete(contact)
+			#contact_index = @contacts.index(contact)					#look inside @contacts array, find index for requested contact, put into contact_index
+		else
+																				
+			puts "Sorry, I can't find what you're looking for!"
 		end
 	end
+
+def display_contacts
+	puts @contacts 
 end
-end
 
 
 
+#line 45 means "we are calling .delete method on the found index in the @contacts array"
 
 
-
-
-
-
-	
+	end
